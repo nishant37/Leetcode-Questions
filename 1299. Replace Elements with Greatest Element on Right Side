@@ -1,0 +1,38 @@
+Example 1:
+Input: arr = [17,18,5,4,6,1]
+Output: [18,6,6,6,1,-1]
+
+Example 2:
+Input: arr = [400]
+Output: [-1]
+
+------------ Solution-1---------------------
+public int[] replaceElements(int[] arr) {
+        int n = arr.length;
+        int prev = arr[n-1];
+        arr[n-1] = -1;
+        for(int i=n-2;i>=0;i--){
+
+            int temp = arr[i];
+            arr[i] = prev;
+
+            if(prev<temp){
+                prev = temp;
+            }
+        } 
+
+        return arr; 
+        
+}
+
+------------ Solution-2---------------------
+ public int[] replaceElements(int[] arr) {
+ int maxTemp = -1;
+        for(int i=arr.length-1;i>=0;i--){
+            int temp = arr[i];
+            arr[i] = maxTemp;
+            maxTemp = Math.max(maxTemp,temp);
+        }
+
+        return arr;
+    }
