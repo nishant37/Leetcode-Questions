@@ -1,0 +1,21 @@
+Length of Last Word
+##Input: s = "Hello World"
+##Output: 5
+##Explanation: The last word is "World" with length 5.
+
+
+##################################Solution####################################
+ public int lengthOfLastWord(String s) {
+        int lastWord = 0;
+
+        int right = s.length()-1;
+
+        while(s.charAt(right)==' ') right--;
+
+        while(right>=0 && s.charAt(right)!=' '){
+            lastWord++;
+            right--;
+        }
+
+        return lastWord;
+    }
